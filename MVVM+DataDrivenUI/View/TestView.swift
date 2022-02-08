@@ -30,14 +30,12 @@ class TestView: UIView {
         case .loading(let loading):
             update(viewData: loading, isHidden: false)
             activityIndicator.isHidden = false
-            activityIndicator.stopAnimating()
+            activityIndicator.startAnimating()
         case .success(let success):
             update(viewData: success, isHidden: false)
-            activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
         case .failure(let failure):
             update(viewData: failure, isHidden: false)
-            activityIndicator.isHidden = true
             activityIndicator.stopAnimating()
         }
     }

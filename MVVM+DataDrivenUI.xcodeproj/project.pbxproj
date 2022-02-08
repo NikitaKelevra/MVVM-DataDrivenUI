@@ -64,13 +64,13 @@
 		683DF75427B2986E009CE7AE /* MVVM+DataDrivenUI */ = {
 			isa = PBXGroup;
 			children = (
+				683DF75B27B2986E009CE7AE /* Main.storyboard */,
+				683DF76927B298F8009CE7AE /* MainModule */,
+				683DF75E27B29870009CE7AE /* Assets.xcassets */,
+				683DF76327B29870009CE7AE /* Info.plist */,
+				683DF76027B29870009CE7AE /* LaunchScreen.storyboard */,
 				683DF75527B2986E009CE7AE /* AppDelegate.swift */,
 				683DF75727B2986E009CE7AE /* SceneDelegate.swift */,
-				683DF76927B298F8009CE7AE /* MainModule */,
-				683DF75B27B2986E009CE7AE /* Main.storyboard */,
-				683DF75E27B29870009CE7AE /* Assets.xcassets */,
-				683DF76027B29870009CE7AE /* LaunchScreen.storyboard */,
-				683DF76327B29870009CE7AE /* Info.plist */,
 			);
 			path = "MVVM+DataDrivenUI";
 			sourceTree = "<group>";
@@ -78,8 +78,8 @@
 		683DF76927B298F8009CE7AE /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				683DF76A27B2993A009CE7AE /* View */,
 				683DF77027B29A6A009CE7AE /* ViewModel */,
+				683DF76A27B2993A009CE7AE /* View */,
 				683DF76B27B29979009CE7AE /* Model */,
 			);
 			name = MainModule;

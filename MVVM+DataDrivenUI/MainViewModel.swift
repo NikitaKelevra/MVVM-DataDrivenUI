@@ -20,38 +20,40 @@ final class MainViewModel:MainViewModelProtocol {
         updateViewData?(.initial)
     }
     
-    public func error() {
+    public func error() { //сразу выдача ошибки
         updateViewData?(.failure(ViewData.Data(icon: "failure",
-                                               title: "Error",
-                                               description: "No user",
+                                               title: "Error!",
+                                               description: "Data was not found.",
                                                numberPhone: nil)))
     }
     
     public func startFetch() {
-        //        //start loading
-        //        updateViewData?(.loading(ViewData.Data(icon: nil,
-        //                                               title: nil,
-        //                                               description: nil,
-        //                                               numberPhone: nil)))
+        //сразу выдача Полученных данных
+//        updateViewData?(.success(ViewData.Data(icon: "succes",
+//                                               title: "Success",
+//                                               description: "Good",
+//                                               numberPhone: nil)))
         
-        //        //parse data
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {[weak self] in
-        //            self?.updateViewData?(.success(ViewData.Data(icon: "succes",
-        //                                                         title: "Success",
-        //                                                         description: "Good",
-        //                                                         numberPhone: nil)))
-        //        }
+        // Проходит все три этапа с задержкой в 3 секунды - загрузка/получение/ошибка
+        //start loading
+        self.updateViewData?(.loading(ViewData.Data(icon: nil,
+                                                    title: nil,
+                                                    description: nil,
+                                                    numberPhone: nil)))
         
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {[weak self] in
-        //            self?.updateViewData?(.failure(ViewData.Data(icon: "failure",
-        //                                                         title: "Error",
-        //                                                         description: "Not user",
-        //                                                         numberPhone: nil)))
-        //        }
+        //parse data
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {[weak self] in
+            self?.updateViewData?(.success(ViewData.Data(icon: "success",
+                                                         title: "Успех!",
+                                                         description: "Данные загружены.",
+                                                         numberPhone: nil)))
+        }
         
-        updateViewData?(.success(ViewData.Data(icon: "succes",
-                                               title: "Success",
-                                               description: "Good",
-                                               numberPhone: nil)))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {[weak self] in
+            self?.updateViewData?(.failure(ViewData.Data(icon: "failure",
+                                                         title: "Ошибка!",
+                                                         description: "Данные не получены.",
+                                                         numberPhone: nil)))
+        }
     }
 }
